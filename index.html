@@ -3,317 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अमित गणपत गोरखे | अधिकृत संकेतस्थळ</title>
+    <title>आमदार अमित गणपत गोरखे | अधिकृत संकेतस्थळ</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;600;800&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
         :root {
-            --bjp-saffron: #FF9933;
-            --bjp-green: #138808;
-            --bjp-blue: #000080;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --saffron: #FF9933;
+            --dark-saffron: #E67E22;
+            --green: #138808;
+            --white: #FFFFFF;
+            --dark-bg: #121212;
+            --glass: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: 'Anek Devanagari', 'Poppins', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
+            font-family: 'Anek Devanagari', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            margin: 0;
             overflow-x: hidden;
         }
 
-        /* Particles Background Overlay */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #000000 0%, #1a0f00 50%, #000d00 100%);
+        /* Mobile Friendly Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem !important; }
+            .section-padding { padding: 50px 0; }
         }
 
-        /* BJP Gradient Navbar */
+        /* Saffron Gradient Background */
+        .saffron-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d240b 100%);
+        }
+
+        /* Navbar */
         .navbar {
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid var(--bjp-saffron);
-            padding: 1rem 0;
-            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--saffron);
         }
 
-        .navbar-brand { font-size: 1.8rem; letter-spacing: 1px; }
+        .nav-link { color: var(--white) !important; font-weight: 600; }
+        .nav-link:hover { color: var(--saffron) !important; }
 
-        /* Hero Section with BJP Accents */
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 153, 51, 0.15), transparent 40%),
-                        radial-gradient(circle at 10% 80%, rgba(19, 136, 8, 0.15), transparent 40%);
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=2000'); /* Replace with real Image */
+            background-size: cover;
+            background-position: center;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            background: linear-gradient(to bottom, #fff 40%, #ccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--saffron);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
-        .hero-badge {
-            background: var(--bjp-saffron);
-            color: #000;
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* Luxury Glass Cards */
+        /* Glass Cards */
         .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            transition: 0.4s;
+            height: 100%;
         }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .glass-card:hover::before { left: 100%; }
 
         .glass-card:hover {
-            transform: scale(1.02);
-            border-color: var(--bjp-saffron);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--saffron);
+            transform: translateY(-10px);
         }
 
-        /* Achievement Counters */
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--bjp-saffron);
-            font-family: 'Poppins';
-        }
-
-        /* Feature Icons */
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, var(--bjp-saffron), #ffcc80);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #000;
-            margin-bottom: 20px;
-        }
-
-        /* Press Release List */
-        .press-item {
-            border-left: 4px solid var(--bjp-saffron);
-            padding-left: 20px;
+        /* Journey Timeline */
+        .journey-item {
+            border-left: 3px solid var(--saffron);
+            padding-left: 25px;
             margin-bottom: 30px;
-            background: rgba(255,255,255,0.02);
-            padding: 20px;
-            border-radius: 0 15px 15px 0;
+            position: relative;
         }
 
-        /* Contact & CTA */
-        .cta-button {
-            background: linear-gradient(90deg, var(--bjp-saffron), #ff8000);
-            color: #000 !important;
-            font-weight: 800;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 20px rgba(255, 153, 51, 0.3);
-        }
-
-        .social-btn {
-            width: 50px;
-            height: 50px;
+        .journey-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--saffron);
             border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--glass-border);
+        }
+
+        /* BJP Colors for Badges */
+        .badge-saffron { background-color: var(--saffron); color: #000; font-weight: 800; }
+        .badge-green { background-color: var(--green); color: #fff; }
+
+        /* Counter Section */
+        .stat-box h2 {
+            font-size: 3rem;
+            color: var(--saffron);
+            font-weight: 900;
+        }
+
+        /* Contact Form */
+        .form-control {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
             color: #fff;
-            margin-right: 10px;
-            transition: 0.3s;
         }
 
-        .social-btn:hover {
-            background: var(--bjp-saffron);
+        .form-control:focus {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-color: var(--saffron);
+            box-shadow: none;
+        }
+
+        .btn-saffron {
+            background: var(--saffron);
             color: #000;
-            transform: translateY(-5px);
+            font-weight: 800;
+            border-radius: 50px;
+            padding: 12px 30px;
         }
 
-        .floating-wa {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-        }
-
-        /* Section Titles */
-        .section-tag {
-            color: var(--bjp-saffron);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
+        .btn-saffron:hover {
+            background: #ff8000;
+            color: #000;
         }
     </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
-
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-extrabold" href="#">
-          <!-- <img src="https://www.vhv.rs/viewpic/oowwh_bjp-logo-png-hd-transparent-png/" width="40" alt="BJP" class="me-2">--> 
-            अमित <span class="text-warning">गोरखे</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <a class="navbar-brand fw-bold" href="#">अमित <span style="color:var(--saffron)">गोरखे</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navContent">
-            <ul class="navbar-nav ms-auto gap-3">
-                <li class="nav-item"><a class="nav-link" href="#mission">ध्येय</a></li>
-                <li class="nav-item"><a class="nav-link" href="#stats">प्रगती</a></li>
-                <li class="nav-item"><a class="nav-link" href="#news">बातम्या</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact" class="btn btn-warning btn-sm">संपर्क</a></li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#journey">जीवनप्रवास</a></li>
+                <li class="nav-item"><a class="nav-link" href="#work">कार्य</a></li>
+                <li class="nav-item"><a class="nav-link" href="#achievements">यश</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">संपर्क</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <span class="hero-badge animate__animated animate__fadeInDown">लोकसेवक | संघटक | आमदार</span>
-                <h1 class="hero-title animate__animated animate__fadeInUp">सामान्यांच्या हक्कासाठी, <br><span style="color:var(--bjp-saffron)">लढा विकासाचा!</span></h1>
-                <p class="lead text-white-50 mb-5 fs-4">महाराष्ट्र विधान परिषद सदस्य (MLC) - भारतीय जनता पक्ष</p>
-                <div class="d-flex flex-wrap gap-3">
-                    <a href="#contact" class="cta-button btn btn-lg">कार्यालयाशी संपर्क साधा</a>
-                    <a href="#mission" class="btn btn-outline-light btn-lg rounded-pill px-5">माझे कार्य</a>
-                </div>
-            </div>
+    <div class="container animate__animated animate__fadeIn">
+        <span class="badge badge-saffron mb-3 px-3 py-2">संघर्षातून नेतृत्वाकडे...</span>
+        <h1 class="hero-title">अमित गणपत गोरखे</h1>
+        <p class="fs-4 fw-light text-light">आमदार, महाराष्ट्र विधान परिषद | भारतीय जनता पक्ष</p>
+        <div class="mt-4">
+            <a href="#journey" class="btn btn-saffron btn-lg">प्रेरणादायी प्रवास पहा</a>
         </div>
     </div>
 </section>
 
-<section id="stats" class="py-5">
-    <div class="container">
-        <div class="row g-4 text-center">
-            <div class="col-md-3">
-                <div class="glass-card">
-                    <div class="stat-number" data-target="25">0</div>
-                    <p class="text-white-50">सामाजिक सेवेचे वर्ष</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="glass-card">
-                    <div class="stat-number" data-target="150">0</div>
-                    <p class="text-white-50">राबवलेले आरोग्य शिबिरे</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="glass-card">
-                    <div class="stat-number" data-target="10">0</div>
-                    <p class="text-white-50">मोठे शैक्षणिक प्रकल्प</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="glass-card">
-                    <div class="stat-number" data-target="50000">0</div>
-                    <p class="text-white-50">मदत मिळालेली कुटुंबे</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="mission" class="py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <span class="section-tag">Vision 2026</span>
-            <h2 class="display-4 fw-bold">आमचे संकल्प</h2>
-        </div>
+<section class="py-5 saffron-gradient">
+    <div class="container text-center">
         <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="feature-icon"><i class="fas fa-microchip"></i></div>
-                    <h3>कौशल्य भारत</h3>
-                    <p class="text-white-50">पिंपरी-चिंचवड मधील तरुणांना आयटी आणि मॅन्युफॅक्चरिंग क्षेत्रात नोकरीसाठी तयार करणे.</p>
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h2 class="counter">२५</h2>
+                    <p class="text-white-50">सामाजिक सेवा वर्षे</p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>अण्णाभाऊ साठे विकास</h3>
-                    <p class="text-white-50">मातंग समाजाच्या आर्थिक उन्नतीसाठी शाश्वत योजना आणि कर्ज पुरवठा यंत्रणा बळकट करणे.</p>
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h2 class="counter">५०</h2>
+                    <p class="text-white-50">शैक्षणिक प्रकल्प</p>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="glass-card h-100">
-                    <div class="feature-icon"><i class="fas fa-city"></i></div>
-                    <h3>स्मार्ट पायाभूत सुविधा</h3>
-                    <p class="text-white-50">वाहतूक कोंडीमुक्त पुणे आणि उत्तम नागरी सुविधांसाठी शासन स्तरावर पाठपुरावा.</p>
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h2 class="counter">१</h2>
+                    <p class="text-white-50">राष्ट्रीय युवा पुरस्कार</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-box">
+                    <h2 class="counter">१००</h2>
+                    <p class="text-white-50">सांस्कृतिक उपक्रम</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="news" class="py-5 bg-dark bg-opacity-25">
+<section id="journey" class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <span class="section-tag">Media & Press</span>
-                <h2 class="mb-4">ताज्या घडामोडी</h2>
-                <div class="press-item">
-                    <small class="text-warning">फेब्रुवारी २०२६</small>
-                    <h4>पुणे मेट्रो विस्तारीकरणासाठी ५०० कोटींचा निधी मंजूर</h4>
-                    <p class="text-white-50">अमित गोरखे यांच्या पाठपुराव्याला यश, उपनगरातील नागरिकांना मोठा दिलासा.</p>
+            <div class="col-lg-6 mb-4">
+                <h2 class="display-5 fw-bold text-warning mb-4">संघर्षाची यशोगाथा</h2>
+                <div class="journey-item">
+                    <h4>१९८० - जन्म व बालपण</h4>
+                    <p class="text-white-50">पुण्यातील मुंढवा येथे एका सामान्य कुटुंबात जन्म. वडील रखवालदार होते, आर्थिक परिस्थिती अत्यंत हलाखीची होती.</p>
                 </div>
-                <div class="press-item">
-                    <small class="text-warning">जानेवारी २०२६</small>
-                    <h4>युवा उद्योजकता मेळाव्याचे आयोजन</h4>
-                    <p class="text-white-50">५००० पेक्षा जास्त तरुणांना थेट मुलाखतींची संधी उपलब्ध करून दिली.</p>
+                <div class="journey-item">
+                    <h4>वृत्तपत्र विक्रेता ते उद्योजक</h4>
+                    <p class="text-white-50">शिक्षण घेत असताना घरोघरी जाऊन पेपर टाकले, एसटी स्टँडवर काकडी विकली आणि दाबेलीचा स्टॉलही चालवला.</p>
+                </div>
+                <div class="journey-item">
+                    <h4>२००३ - शैक्षणिक पाऊल</h4>
+                    <p class="text-white-50">'नॉव्हेल इन्स्टिट्यूट'ची स्थापना करून हजारो विद्यार्थ्यांना केजी ते पीजीपर्यंत दर्जेदार शिक्षण उपलब्ध करून दिले.</p>
+                </div>
+                <div class="journey-item">
+                    <h4>२०२४ - विधान परिषद आमदार</h4>
+                    <p class="text-white-50">मातंग समाजाचे प्रतिनिधी म्हणून विधान परिषदेवर ऐतिहासिक निवड.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="glass-card">
-                    <h3 class="mb-4">महत्त्वाचे दुवे</h3>
+                    <h3 class="text-warning mb-3">महत्त्वाच्या जबाबदाऱ्या</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a href="#" class="text-decoration-none text-white"><i class="fas fa-download me-2 text-warning"></i> विकास अहवाल २०२५ डाऊनलोड करा</a></li>
-                        <li class="mb-3"><a href="#" class="text-decoration-none text-white"><i class="fas fa-users me-2 text-warning"></i> कार्यकर्ता नोंदणी फॉर्म</a></li>
-                        <li class="mb-3"><a href="#" class="text-decoration-none text-white"><i class="fas fa-calendar-alt me-2 text-warning"></i> भेटीची वेळ (Appointment)</a></li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> सचिव, भाजप महाराष्ट्र प्रदेश</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> माजी अध्यक्ष, अण्णाभाऊ साठे विकास महामंडळ</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> संस्थापक, कलारंग सांस्कृतिक संस्था</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> समन्वयक, भाजप कोविड टास्क फोर्स</li>
                     </ul>
                 </div>
             </div>
@@ -321,94 +243,97 @@
     </div>
 </section>
 
-<footer id="contact" class="py-5" style="border-top: 1px solid var(--glass-border);">
+<section id="work" class="py-5 saffron-gradient">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <h3 class="fw-bold text-warning mb-4">अमित गणपत गोरखे</h3>
-                <p class="text-white-50">नवे विचार, नवा संकल्प, नवा महाराष्ट्र!</p>
-                <div class="mt-4">
-                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        <h2 class="text-center fw-bold mb-5">व्हिजन आणि कार्य</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <i class="fas fa-graduation-cap fa-3x text-warning mb-3"></i>
+                    <h4>शिक्षण प्रसार</h4>
+                    <p>गरिबांच्या मुलांना आंतरराष्ट्रीय दर्जाचे शिक्षण मिळावे यासाठी पिंपरी-चिंचवडमध्ये शाळा व कॉलेजचे जाळे निर्माण केले.</p>
                 </div>
             </div>
-            <div class="col-lg-4 mb-4">
-                <h5 class="mb-4">संपर्क पत्ता</h5>
-                <p class="text-white-50">
-                    <i class="fas fa-map-marker-alt me-2 text-warning"></i> मुख्य संपर्क कार्यालय, <br>
-                    चिंचवड, पुणे - ४११०१९
-                </p>
-                <p class="text-white-50"><i class="fas fa-phone me-2 text-warning"></i> +९१ ९८७६५ ४३२१०</p>
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <i class="fas fa-users-cog fa-3x text-warning mb-3"></i>
+                    <h4>युवा सक्षमीकरण</h4>
+                    <p>युवा उद्योजकांसाठी कौशल्य विकास केंद्रे आणि रोजगाराच्या संधी उपलब्ध करून दिल्या.</p>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h5>थेट संदेश पाठवा</h5>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-dark border-secondary text-white" placeholder="तुमचा मोबाइल नंबर">
-                    <button class="btn btn-warning" type="button">नोंदणी करा</button>
+            <div class="col-md-4">
+                <div class="glass-card">
+                    <i class="fas fa-landmark fa-3x text-warning mb-3"></i>
+                    <h4>समाज प्रबोधन</h4>
+                    <p>लोकशाहीर अण्णाभाऊ साठे यांचे विचार जागतिक स्तरावर नेण्यासाठी मॉस्को (रशिया) येथे त्यांचा पुतळा उभारण्यात पुढाकार.</p>
                 </div>
             </div>
         </div>
-        <hr class="my-5 border-secondary">
-        <p class="text-center text-white-50 small">&copy; २०२६ अमित गणपत गोरखे. सर्व हक्क सुरक्षित. | भारतीय जनता पक्ष</p>
     </div>
+</section>
+
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="glass-panel glass-card p-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="fw-bold text-warning">संपर्क साधा</h2>
+                    <p class="text-white-50">तुमच्या समस्या आणि सूचना आमच्यापर्यंत पोहोचवा.</p>
+                    <p><i class="fas fa-map-marker-alt text-warning me-2"></i> नॉव्हेल इंटरनॅशनल स्कूल, चिंचवड, पुणे.</p>
+                    <p><i class="fas fa-phone text-warning me-2"></i> +91 98222 54678</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-3"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="तुमचे नाव">
+                        <input type="text" class="form-control mb-3" placeholder="मोबाइल नंबर">
+                        <textarea class="form-control mb-3" rows="4" placeholder="तुमचा संदेश"></textarea>
+                        <button class="btn btn-saffron w-100">संदेश पाठवा</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-4 text-center border-top border-secondary">
+    <p class="mb-0 text-white-50">© २०२६ अमित गणपत गोरखे कार्यालय | नवे विचार, नवा महाराष्ट्र</p>
 </footer>
 
-<div class="floating-wa">
-    <a href="https://wa.me/919876543210" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="60" alt="WhatsApp">
-    </a>
-</div>
+<a href="https://wa.me/919822254678" target="_blank" style="position:fixed; bottom:20px; right:20px; z-index:1000;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="60" alt="WhatsApp">
+</a>
 
 <script>
-    // Particles configuration for a "Starfield BJP" vibe
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-            "color": { "value": ["#FF9933", "#FFFFFF", "#138808"] },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5, "random": true },
-            "size": { "value": 3, "random": true },
-            "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
-            "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true }
-        }
-    });
-
-    // GSAP Scroll Animations
+    // Animations
     gsap.registerPlugin(ScrollTrigger);
 
-    // Number Counter Animation
-    const counters = document.querySelectorAll('.stat-number');
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const speed = 200;
-            const inc = target / speed;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target + "+";
-            }
-        };
-
-        ScrollTrigger.create({
-            trigger: counter,
-            onEnter: updateCount
+    gsap.from(".hero-title", { duration: 1.5, y: -100, opacity: 0, ease: "bounce" });
+    
+    gsap.utils.toArray('.glass-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: card,
+            y: 50, opacity: 0, duration: 1
         });
     });
 
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            document.querySelector('.navbar').style.background = 'rgba(0,0,0,0.9)';
-            document.querySelector('.navbar').style.padding = '0.5rem 0';
-        } else {
-            document.querySelector('.navbar').style.background = 'rgba(0,0,0,0.7)';
-            document.querySelector('.navbar').style.padding = '1rem 0';
-        }
+    // Simple Counter
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        counter.innerText = '0';
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target') || parseInt(counter.innerText.replace(/\D/g,'')) + 50; 
+            // Simplified for demo
+            if (parseInt(counter.innerText) < 100) {
+                counter.innerText = parseInt(counter.innerText) + 1;
+                setTimeout(updateCounter, 20);
+            }
+        };
+        // updateCounter(); 
     });
 </script>
 

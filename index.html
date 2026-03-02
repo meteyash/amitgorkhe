@@ -4,295 +4,942 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>आमदार अमित गणपत गोरखे | अधिकृत संकेतस्थळ</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;600;800&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300;400;600;700;800&family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     <style>
         :root {
-            --saffron: #FF9933;
-            --dark-saffron: #E67E22;
-            --green: #138808;
-            --white: #FFFFFF;
-            --dark-bg: #121212;
-            --glass: rgba(255, 255, 255, 0.1);
+            --bjp-saffron: #FF9933;
+            --bjp-navy: #000080;
+            --accent-orange: #FF6B00;
+            --saffron-gradient: linear-gradient(135deg, #FF9933 0%, #FF6B00 100%);
+            --navy-gradient: linear-gradient(135deg, #000080 0%, #000033 100%);
+            --glass-white: rgba(255, 255, 255, 0.95);
         }
 
         body {
             font-family: 'Anek Devanagari', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--white);
-            margin: 0;
+            background: #f8f9fa;
+            color: #2d3436;
             overflow-x: hidden;
         }
 
-        /* Mobile Friendly Adjustments */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem !important; }
-            .section-padding { padding: 50px 0; }
-        }
+        /* --- Global Enhancements --- */
+        .section-padding { padding: 80px 0; }
+        .text-saffron { color: var(--bjp-saffron); }
+        .bg-navy { background: var(--navy-gradient); color: white; }
+        .section-title { font-weight: 800; margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--bjp-saffron); margin: 15px auto; }
 
-        /* Saffron Gradient Background */
-        .saffron-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3d240b 100%);
-        }
-
-        /* Navbar */
+        /* --- Advanced Navbar --- */
         .navbar {
+            padding: 10px 0;
+            transition: 0.4s;
+            background: var(--glass-white) !important;
             backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 2px solid var(--saffron);
+            border-bottom: 4px solid var(--bjp-saffron);
+        }
+        .navbar-brand img {
+            max-height: 60px;
+            transition: 0.3s;
+        }
+        .nav-link {
+            font-weight: 700;
+            color: var(--bjp-navy) !important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+        }
+        .btn-prime {
+            background: var(--saffron-gradient);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+        }
+        .btn-prime:hover {
+            transform: scale(1.05);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 153, 51, 0.5);
         }
 
-        .nav-link { color: var(--white) !important; font-weight: 600; }
-        .nav-link:hover { color: var(--saffron) !important; }
-
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             height: 100vh;
+            background: linear-gradient(90deg, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1570126128898-4b9ed89e0fb3?q=80&w=2000');
+            background-size: cover;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=2000'); /* Replace with real Image */
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: var(--saffron);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        /* Glass Cards */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 25px;
-            transition: 0.4s;
-            height: 100%;
-        }
-
-        .glass-card:hover {
-            border-color: var(--saffron);
-            transform: translateY(-10px);
-        }
-
-        /* Journey Timeline */
-        .journey-item {
-            border-left: 3px solid var(--saffron);
-            padding-left: 25px;
-            margin-bottom: 30px;
             position: relative;
         }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--bjp-navy);
+        }
 
-        .journey-item::before {
+        /* --- Tree Timeline (Jeevan Path) --- */
+        .jeevan-path-section { background: #fff; position: relative; }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        .timeline::after {
             content: '';
             position: absolute;
-            left: -10px;
-            top: 0;
-            width: 18px;
-            height: 18px;
-            background: var(--saffron);
+            width: 4px;
+            background-color: var(--bjp-saffron);
+            top: 0; bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--bjp-navy);
+            top: 15px;
             border-radius: 50%;
+            z-index: 1;
         }
-
-        /* BJP Colors for Badges */
-        .badge-saffron { background-color: var(--saffron); color: #000; font-weight: 800; }
-        .badge-green { background-color: var(--green); color: #fff; }
-
-        /* Counter Section */
-        .stat-box h2 {
-            font-size: 3rem;
-            color: var(--saffron);
-            font-weight: 900;
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--bjp-saffron);
         }
-
-        /* Contact Form */
-        .form-control {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-        }
-
-        .form-control:focus {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border-color: var(--saffron);
-            box-shadow: none;
-        }
-
-        .btn-saffron {
-            background: var(--saffron);
-            color: #000;
+        .timeline-content h4 { color: var(--bjp-navy); font-weight: 700; }
+        .timeline-year {
             font-weight: 800;
-            border-radius: 50px;
-            padding: 12px 30px;
+            color: var(--bjp-saffron);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .btn-saffron:hover {
-            background: #ff8000;
-            color: #000;
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container::after { left: 21px; }
+            .right { left: 0%; }
         }
+
+        /* --- Statistics Cards --- */
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border-bottom: 5px solid var(--bjp-saffron);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-10px); }
+        .progress-circle {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: #fff3e6;
+            color: var(--accent-orange);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 800;
+            margin: 0 auto 15px;
+            border: 4px solid var(--bjp-saffron);
+        }
+
+        /* --- Adhiveshan Section --- */
+        .adhiveshan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid var(--bjp-navy);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        /* --- Social Media Grid --- */
+        .social-box {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+        .social-box:hover { transform: translateY(-5px); filter: brightness(1.1); color: white; }
+        .fb { background: #1877F2; }
+        .tw { background: #1DA1F2; }
+        .inst { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .yt { background: #FF0000; }
+
+        /* --- Floating WhatsApp --- */
+        .wa-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 65px; height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 35px;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        /* --- Vision Section --- */
+.vision-box {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    transition: 0.4s;
+    border: 1px solid #eee;
+    height: 100%;
+}
+.vision-box:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.vision-box.active {
+    background: var(--saffron-gradient);
+    color: white;
+}
+.vision-icon {
+    font-size: 3rem;
+    color: var(--bjp-saffron);
+    margin-bottom: 20px;
+}
+.vision-box.active .vision-icon, .vision-box.active p {
+    color: white;
+}
+
+/* --- Gallery Section --- */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 250px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.gallery-item:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* --- News Section --- */
+.news-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.news-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.news-date {
+    background: var(--bjp-navy);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 800;
+    min-width: 80px;
+}
+
+/* --- Testimonials --- */
+.testi-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border-left: 5px solid var(--bjp-saffron);
+    height: 100%;
+}
+
+/* --- Section Title Alignment Fix --- */
+.section-title {
+    text-align: center;
+}
+/* --- Social Feed Cards --- */
+.social-feed-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+}
+.feed-header {
+    padding: 10px 15px;
+    font-weight: 700;
+    color: white;
+}
+.insta-border .feed-header { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.twitter-border .feed-header { background: #000; }
+.fb-border .feed-header { background: #1877F2; }
+
+.feed-placeholder {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.feed-overlay {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.4);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: 0.3s;
+}
+.feed-placeholder:hover .feed-overlay { opacity: 1; }
+.user-circle {
+    width: 30px; height: 30px; background: #eee; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 10px;
+}
+
+/* --- Step Circles for Flowchart --- */
+.step-circle {
+    width: 60px; height: 60px;
+    background: var(--bjp-saffron);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Accordion Customization --- */
+.accordion-button:not(.collapsed) {
+    background-color: #fff3e6;
+    color: var(--bjp-navy);
+    font-weight: 700;
+}
+.accordion-button:focus { border-color: var(--bjp-saffron); box-shadow: none; }
+/* --- Process Flow --- */
+.process-flow {
+    position: relative;
+}
+.process-step {
+    padding: 20px;
+    position: relative;
+}
+.step-icon {
+    width: 50px; height: 50px;
+    background: var(--bjp-navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 15px;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 3px var(--bjp-navy);
+}
+/* Flowline for desktop */
+@media (min-width: 768px) {
+    .process-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 45px;
+        left: 60%;
+        width: 80%;
+        height: 2px;
+        background: var(--bjp-navy);
+        z-index: 1;
+    }
+}
+
+/* --- Skill Cards --- */
+.skill-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.skill-card:hover { transform: translateY(-10px); }
+.skill-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Contact Info Boxes --- */
+.contact-info-box {
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+.contact-info-box:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.bg-saffron {
+    background: var(--saffron-gradient) !important;
+}
+
+/* --- Forms Customization --- */
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+.form-control:focus {
+    border-color: var(--bjp-saffron);
+    box-shadow: 0 0 0 0.25rem rgba(255, 153, 51, 0.25);
+}
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">अमित <span style="color:var(--saffron)">गोरखे</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="logo.png" alt="Logo" class="me-3" onerror="this.src='https://via.placeholder.com/60x60?text=LOGO'">
+            <div>
+                <h4 class="mb-0 fw-bold" style="color: var(--bjp-navy);">अमित <span class="text-saffron">गोरखे</span></h4>
+                <small class="text-muted fw-bold" style="font-size: 11px; letter-spacing: 2px;">आमदार | महाराष्ट्र विधान परिषद</small>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#journey">जीवनप्रवास</a></li>
-                <li class="nav-item"><a class="nav-link" href="#work">कार्य</a></li>
-                <li class="nav-item"><a class="nav-link" href="#achievements">यश</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">संपर्क</a></li>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#about">परिचय</a></li>
+                <li class="nav-item"><a class="nav-link" href="#adhiveshan">अधिवेशन</a></li>
+                <li class="nav-item"><a class="nav-link" href="#jeevan-path">जीवनपट</a></li>
+                <li class="nav-item"><a class="nav-link" href="#social">सोशल मीडिया</a></li>
+                <li class="nav-item ms-lg-3"><button class="btn btn-prime">ई-तक्रार निवारण</button></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="container animate__animated animate__fadeIn">
-        <span class="badge badge-saffron mb-3 px-3 py-2">संघर्षातून नेतृत्वाकडे...</span>
-        <h1 class="hero-title">अमित गणपत गोरखे</h1>
-        <p class="fs-4 fw-light text-light">आमदार, महाराष्ट्र विधान परिषद | भारतीय जनता पक्ष</p>
-        <div class="mt-4">
-            <a href="#journey" class="btn btn-saffron btn-lg">प्रेरणादायी प्रवास पहा</a>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 saffron-gradient">
-    <div class="container text-center">
-        <div class="row g-4">
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h2 class="counter">२५</h2>
-                    <p class="text-white-50">सामाजिक सेवा वर्षे</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h2 class="counter">५०</h2>
-                    <p class="text-white-50">शैक्षणिक प्रकल्प</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h2 class="counter">१</h2>
-                    <p class="text-white-50">राष्ट्रीय युवा पुरस्कार</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-box">
-                    <h2 class="counter">१००</h2>
-                    <p class="text-white-50">सांस्कृतिक उपक्रम</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="journey" class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <h2 class="display-5 fw-bold text-warning mb-4">संघर्षाची यशोगाथा</h2>
-                <div class="journey-item">
-                    <h4>१९८० - जन्म व बालपण</h4>
-                    <p class="text-white-50">पुण्यातील मुंढवा येथे एका सामान्य कुटुंबात जन्म. वडील रखवालदार होते, आर्थिक परिस्थिती अत्यंत हलाखीची होती.</p>
-                </div>
-                <div class="journey-item">
-                    <h4>वृत्तपत्र विक्रेता ते उद्योजक</h4>
-                    <p class="text-white-50">शिक्षण घेत असताना घरोघरी जाऊन पेपर टाकले, एसटी स्टँडवर काकडी विकली आणि दाबेलीचा स्टॉलही चालवला.</p>
-                </div>
-                <div class="journey-item">
-                    <h4>२००३ - शैक्षणिक पाऊल</h4>
-                    <p class="text-white-50">'नॉव्हेल इन्स्टिट्यूट'ची स्थापना करून हजारो विद्यार्थ्यांना केजी ते पीजीपर्यंत दर्जेदार शिक्षण उपलब्ध करून दिले.</p>
-                </div>
-                <div class="journey-item">
-                    <h4>२०२४ - विधान परिषद आमदार</h4>
-                    <p class="text-white-50">मातंग समाजाचे प्रतिनिधी म्हणून विधान परिषदेवर ऐतिहासिक निवड.</p>
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <h6 class="text-saffron fw-bold mb-3"><i class="fas fa-bolt me-2"></i> ध्येयवादी नेतृत्व</h6>
+                <h1 class="hero-title">पिंपरी-चिंचवडच्या <br><span class="text-saffron">सर्वांगीण विकासाचा</span> ध्यास!</h1>
+                <p class="fs-5 text-muted my-4 pe-lg-5">शिक्षण, कौशल्य विकास आणि सामाजिक न्यायाच्या माध्यमातून 'नवा महाराष्ट्र' घडवण्यासाठी आम्ही कटिबद्ध आहोत.</p>
+                <div class="d-flex gap-3 mt-5">
+                    <button class="btn btn-prime btn-lg px-5">सहभागी व्हा</button>
+                    <button class="btn btn-outline-dark btn-lg px-4 rounded-pill"><i class="fas fa-play-circle me-2"></i> पहा प्रवास</button>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="glass-card">
-                    <h3 class="text-warning mb-3">महत्त्वाच्या जबाबदाऱ्या</h3>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> सचिव, भाजप महाराष्ट्र प्रदेश</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> माजी अध्यक्ष, अण्णाभाऊ साठे विकास महामंडळ</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> संस्थापक, कलारंग सांस्कृतिक संस्था</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> समन्वयक, भाजप कोविड टास्क फोर्स</li>
-                    </ul>
+            <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+                <div class="position-relative">
+                    <img src="ag.jpeg" alt="Amit Gorkhe" class="img-fluid rounded-4 shadow-lg border-bottom border-5 border-warning">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="work" class="py-5 saffron-gradient">
+<section class="py-5">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5">व्हिजन आणि कार्य</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <i class="fas fa-graduation-cap fa-3x text-warning mb-3"></i>
-                    <h4>शिक्षण प्रसार</h4>
-                    <p>गरिबांच्या मुलांना आंतरराष्ट्रीय दर्जाचे शिक्षण मिळावे यासाठी पिंपरी-चिंचवडमध्ये शाळा व कॉलेजचे जाळे निर्माण केले.</p>
+        <div class="row g-4 mt-n5">
+            <div class="col-6 col-md-3" data-aos="zoom-in">
+                <div class="stat-card text-center">
+                    <div class="progress-circle">95%</div>
+                    <h6 class="fw-bold">डिजिटल शिक्षण</h6>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <i class="fas fa-users-cog fa-3x text-warning mb-3"></i>
-                    <h4>युवा सक्षमीकरण</h4>
-                    <p>युवा उद्योजकांसाठी कौशल्य विकास केंद्रे आणि रोजगाराच्या संधी उपलब्ध करून दिल्या.</p>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-card text-center">
+                    <div class="progress-circle">10k+</div>
+                    <h6 class="fw-bold">युवा रोजगार</h6>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="glass-card">
-                    <i class="fas fa-landmark fa-3x text-warning mb-3"></i>
-                    <h4>समाज प्रबोधन</h4>
-                    <p>लोकशाहीर अण्णाभाऊ साठे यांचे विचार जागतिक स्तरावर नेण्यासाठी मॉस्को (रशिया) येथे त्यांचा पुतळा उभारण्यात पुढाकार.</p>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-card text-center">
+                    <div class="progress-circle">50+</div>
+                    <h6 class="fw-bold">शासकीय योजना</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-card text-center">
+                    <div class="progress-circle">24/7</div>
+                    <h6 class="fw-bold">जनसंपर्क</h6>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="contact" class="py-5">
+<section class="section-padding" id="about">
     <div class="container">
-        <div class="glass-panel glass-card p-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2 class="fw-bold text-warning">संपर्क साधा</h2>
-                    <p class="text-white-50">तुमच्या समस्या आणि सूचना आमच्यापर्यंत पोहोचवा.</p>
-                    <p><i class="fas fa-map-marker-alt text-warning me-2"></i> नॉव्हेल इंटरनॅशनल स्कूल, चिंचवड, पुणे.</p>
-                    <p><i class="fas fa-phone text-warning me-2"></i> +91 98222 54678</p>
-                    <div class="mt-4">
-                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white me-3 fs-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white fs-3"><i class="fab fa-twitter"></i></a>
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+                <div class="position-relative">
+                    <img src="ag.jpeg" class="rounded-5 shadow w-100" alt="About Amit Gorkhe">
+                    <div class="bg-saffron p-4 rounded-4 position-absolute bottom-0 start-0 translate-middle-x d-none d-lg-block" style="background:var(--bjp-saffron); color:white; width: 250px; margin-left: 100px;">
+                        <h2 class="fw-bold mb-0">२१+</h2>
+                        <p class="mb-0">वर्षे सामाजिक कार्याचा अनुभव</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+            </div>
+            <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
+                <h6 class="text-saffron fw-bold text-uppercase">माझा परिचय</h6>
+                <h2 class="fw-bold display-6 mb-4">शिक्षणातून क्रांती आणि <br>कार्यातून <span class="text-saffron">समाजसेवा</span></h2>
+                <p class="lead text-muted">अमित गणपत गोरखे हे नाव आज पिंपरी-चिंचवडमध्ये शिक्षण, सामाजिक न्याय आणि युवा सक्षमीकरणाचा समानार्थी शब्द बनले आहे.</p>
+                <p>एका सामान्य कुटुंबातून येत, आपल्या कष्टाच्या जोरावर त्यांनी 'नॉव्हेल ग्रुप ऑफ इन्स्टिट्यूट्स'च्या माध्यमातून हजारो विद्यार्थ्यांचे भवितव्य घडवले.</p>
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-3"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-saffron me-2 fs-4"></i><span class="fw-bold">अनुभवी नेतृत्व</span></div></div>
+                    <div class="col-md-6 mb-3"><div class="d-flex align-items-center"><i class="fas fa-check-circle text-saffron me-2 fs-4"></i><span class="fw-bold">युवांचे मार्गदर्शक</span></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light" id="adhiveshan">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">विधानसभा <span class="text-saffron">अधिवेशन कार्य</span></h2>
+            <p class="text-muted">सभागृहात जनतेचा आवाज आणि महत्त्वाचे प्रश्न</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4" data-aos="fade-up">
+                <div class="adhiveshan-card h-100">
+                    <span class="badge bg-navy mb-3">हिवाळी अधिवेशन २०२४</span>
+                    <h4>शिक्षण हक्क अंमलबजावणी</h4>
+                    <p class="text-muted">खाजगी शाळांमधील आरटीई प्रवेशाबाबत आणि शिक्षकांच्या रिक्त पदांबाबत सभागृहात तारांकित प्रश्न मांडले.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="adhiveshan-card h-100">
+                    <span class="badge bg-warning text-dark mb-3">पावसाळी अधिवेशन २०२४</span>
+                    <h4>पिंपरी-चिंचवड पाणी प्रश्न</h4>
+                    <p class="text-muted">शहरातील वाढत्या लोकसंख्येनुसार वाढीव पाणीपुरवठा आणि आंद्रा-भामा आसखेड धरणाचे पाणी मिळण्याबाबत पाठपुरावा.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="adhiveshan-card h-100">
+                    <span class="badge bg-success mb-3">विशेष अधिवेशन</span>
+                    <h4>मराठा आरक्षण व सारथी</h4>
+                    <p class="text-muted">युवकांना कौशल्य विकासासाठी 'सारथी' संस्थेच्या माध्यमातून जास्तीत जास्त निधी मिळवण्यावर भर दिला.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding jeevan-path-section" id="jeevan-path">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">प्रवास : <span class="text-saffron">जीवनपट</span></h2>
+            <p class="text-muted">शून्यातून विश्व निर्माण करण्याचा एक प्रेरणादायी प्रवास</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-container left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <span class="timeline-year">२००२</span>
+                    <h4>सामाजिक कार्याची सुरुवात</h4>
+                    <p>विद्यार्थी दशेत असतानाच सामाजिक चळवळीत सक्रिय सहभाग आणि जनसेवेचा श्रीगणेशा.</p>
+                </div>
+            </div>
+            <div class="timeline-container right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">२००७</span>
+                    <h4>नॉव्हेल ग्रुपची स्थापना</h4>
+                    <p>पिंपरी-चिंचवडमधील विद्यार्थ्यांना जागतिक दर्जाचे शिक्षण मिळावे या उद्देशाने शैक्षणिक संस्थेची मुहूर्तमेढ.</p>
+                </div>
+            </div>
+            <div class="timeline-container left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <span class="timeline-year">२०१८</span>
+                    <h4>राज्यस्तरीय जबाबदारी</h4>
+                    <p>लोकशाहीर अण्णाभाऊ साठे विकास महामंडळाच्या अध्यक्षपदी नियुक्ती आणि मातंग समाजासाठी ऐतिहासिक कामे.</p>
+                </div>
+            </div>
+            <div class="timeline-container right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">२०२४</span>
+                    <h4>विधान परिषदेवर निवड</h4>
+                    <p>भारतीय जनता पार्टीच्या वतीने महाराष्ट्र विधान परिषदेवर आमदार म्हणून नियुक्ती आणि संसदीय कारकिर्दीला प्रारंभ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="vision">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">व्हिजन <span class="text-saffron">२०३०</span></h2>
+            <p class="text-muted">आधुनिक पिंपरी-चिंचवड आणि समर्थ महाराष्ट्रासाठी आमची प्राथमिकता</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up">
+                <div class="vision-box">
+                    <div class="vision-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>कौशल्य आधारित शिक्षण</h4>
+                    <p>प्रत्येक हाताला काम मिळावे यासाठी जागतिक दर्जाची कौशल्य विकास केंद्रे उभारणे.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="vision-box active">
+                    <div class="vision-icon"><i class="fas fa-city"></i></div>
+                    <h4>स्मार्ट पायाभूत सुविधा</h4>
+                    <p>वाहतूक कोंडी मुक्त रस्ते आणि आधुनिक सार्वजनिक वाहतूक व्यवस्थेवर भर.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="vision-box">
+                    <div class="vision-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>सामाजिक समरसता</h4>
+                    <p>वंचित घटकांना मुख्य प्रवाहात आणण्यासाठी विशेष योजनांची अंमलबजावणी.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="vision-box">
+                    <div class="vision-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>पर्यावरण पूरक विकास</h4>
+                    <p>नदी सुधार प्रकल्प आणि हरित पिंपरी-चिंचवड संकल्पना प्रत्यक्ष उतरवणे.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light" id="gallery">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h2 class="section-title mb-0" style="text-align: left; margin: 0;">क्षणचित्रे <span class="text-saffron">गॅलरी</span></h2>
+            </div>
+            <a href="#" class="btn btn-outline-primary rounded-pill">सर्व पहा <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?q=80&w=800" class="img-fluid rounded-4" alt="Event"></div>
+            </div>
+            <div class="col-md-8" data-aos="zoom-in" data-aos-delay="100">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200" class="img-fluid rounded-4" alt="Meeting"></div>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800" class="img-fluid rounded-4" alt="Youth"></div>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800" class="img-fluid rounded-4" alt="Awards"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="news">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">मीडिया <span class="text-saffron">कव्हरेज</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4" data-aos="fade-right">
+                <div class="news-card d-flex align-items-center">
+                    <div class="news-date">०२ <br> MAR</div>
+                    <div class="ms-4">
+                        <span class="badge bg-warning text-dark mb-2">लोकमत</span>
+                        <h5>अमित गोरखे यांच्या पुढाकाराने कौशल्य विकास मेळावा संपन्न...</h5>
+                        <a href="#" class="text-decoration-none fw-bold text-saffron">पुढे वाचा <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4" data-aos="fade-left">
+                <div class="news-card d-flex align-items-center">
+                    <div class="news-date">२८ <br> FEB</div>
+                    <div class="ms-4">
+                        <span class="badge bg-warning text-dark mb-2">सकाळ</span>
+                        <h5>पिंपरीच्या पाण्यासाठी विधान परिषदेत आवाज उठवला...</h5>
+                        <a href="#" class="text-decoration-none fw-bold text-saffron">पुढे वाचा <i class="fas fa-chevron-right small"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-navy text-white" id="testimonials">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4" data-aos="fade-right">
+                <h2 class="fw-bold display-5 mb-4">जनतेचा <span class="text-warning">विश्वास</span></h2>
+                <p class="opacity-75">आमच्या कार्याची पावती म्हणजे नागरिकांनी व्यक्त केलेले मनोगत.</p>
+            </div>
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="flip-up">
+                        <div class="testi-card">
+                            <i class="fas fa-quote-left mb-3 fs-2 text-warning"></i>
+                            <p>"अमित सरांच्या मार्गदर्शनाखाली मला रोजगार मिळाला. ते युवकांसाठी खरे आधारस्तंभ आहेत."</p>
+                            <h6 class="mb-0 fw-bold">- सुमित कांबळे (युवा उद्योजक)</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="flip-up" data-aos-delay="100">
+                        <div class="testi-card">
+                            <i class="fas fa-quote-left mb-3 fs-2 text-warning"></i>
+                            <p>"शासकीय योजना घराघरात पोहोचवण्यासाठी त्यांनी केलेले काम कौतुकास्पद आहे."</p>
+                            <h6 class="mb-0 fw-bold">- सुनंदा ताई (गृहिणी)</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding cta-section text-center text-white" style="background: linear-gradient(rgba(0,0,128,0.8), rgba(0,0,128,0.8)), url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=1500'); background-size: cover; background-attachment: fixed;">
+    <div class="container" data-aos="zoom-in">
+        <h2 class="display-4 fw-bold mb-4">चला, नवा महाराष्ट्र घडवूया!</h2>
+        <p class="lead mb-5">आपल्या सूचना आणि सहभाग आमच्यासाठी महत्त्वाचा आहे. आजच आमच्या मोहिमेत सामील व्हा.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <button class="btn btn-warning btn-lg px-5 py-3 fw-bold rounded-pill">स्वयंसेवक म्हणून सामील व्हा</button>
+            <button class="btn btn-outline-light btn-lg px-5 py-3 fw-bold rounded-pill">देणगी द्या</button>
+        </div>
+    </div>
+</section>
+<section class="section-padding bg-light" id="live-feed">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">लाईव्ह <span class="text-saffron">अपडेट्स</span></h2>
+            <p class="text-muted">सोशल मीडियावरील ताज्या घडामोडी</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-up">
+                <div class="social-feed-card insta-border">
+                    <div class="feed-header"><i class="fab fa-instagram me-2"></i> Instagram</div>
+                    <div class="feed-placeholder" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600');">
+                        <div class="feed-overlay"><a href="#" class="btn btn-light btn-sm">पोस्ट पहा</a></div>
+                    </div>
+                    <div class="p-3">
+                        <p class="small mb-0">आज विधान परिषदेत पिंपरी-चिंचवडच्या मेट्रो प्रकल्पावर चर्चा केली...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="social-feed-card twitter-border">
+                    <div class="feed-header"><i class="fab fa-x-twitter me-2"></i> Twitter (X)</div>
+                    <div class="p-3">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="user-circle me-2">AG</div>
+                            <span class="fw-bold small">Amit Gorkhe MLA</span>
+                        </div>
+                        <p class="small">Budget 2026 brings great news for the SC/ST entrepreneurs! #MaharashtraBudget #Development</p>
+                        <hr>
+                        <div class="d-flex justify-content-between text-muted small"><i class="far fa-heart"></i> <i class="far fa-comment"></i> <i class="fas fa-retweet"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="social-feed-card fb-border">
+                    <div class="feed-header"><i class="fab fa-facebook-f me-2"></i> Facebook</div>
+                    <div class="feed-placeholder" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600');"></div>
+                    <div class="p-3">
+                        <p class="small mb-0">जनता दरबार: नागरिकांच्या समस्यांचे जागीच निवारण करण्यासाठी कटिबद्ध...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-navy text-white">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-6 col-lg-3" data-aos="zoom-in">
+                <h1 class="display-4 fw-bold text-warning">१४२+</h1>
+                <p>मांडलेले प्रश्न</p>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                <h1 class="display-4 fw-bold text-warning">८५%</h1>
+                <p>उपस्थिती</p>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                <h1 class="display-4 fw-bold text-warning">२४</h1>
+                <p>विशेष उल्लेख</p>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                <h1 class="display-4 fw-bold text-warning">१००%</h1>
+                <p>निधी विनियोग</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">तक्रार <span class="text-saffron">निवारण प्रक्रिया</span></h2>
+            <p class="text-muted">तुमची समस्या सोडवण्यासाठी आम्ही असे काम करतो</p>
+        </div>
+        
+        <div class="row text-center mt-5">
+            <div class="col-md-3"><div class="step-circle">१</div><h6>नोंदणी</h6></div>
+            <div class="col-md-3"><div class="step-circle">२</div><h6>पडताळणी</h6></div>
+            <div class="col-md-3"><div class="step-circle">३</div><h6>पाठपुरावा</h6></div>
+            <div class="col-md-3"><div class="step-circle">४</div><h6>निवारण</h6></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="fw-bold mb-4">महत्वाचे <span class="text-saffron">दस्तऐवज</span></h2>
+                <p>शासकीय योजनांचे अर्ज आणि माहितीपत्रके येथून डाऊनलोड करा.</p>
+                <div class="list-group list-group-flush mt-4">
+                    <a href="#" class="list-group-item bg-transparent d-flex justify-content-between align-items-center p-3">
+                        <span><i class="far fa-file-pdf text-danger me-2"></i> सारथी योजना मार्गदर्शिका</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                    <a href="#" class="list-group-item bg-transparent d-flex justify-content-between align-items-center p-3">
+                        <span><i class="far fa-file-pdf text-danger me-2"></i> अण्णाभाऊ साठे महामंडळ कर्ज अर्ज</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="p-5 bg-white shadow rounded-4 text-center">
+                    <i class="fas fa-mobile-alt display-1 text-saffron mb-4"></i>
+                    <h4>डिजिटल संपर्क कार्ड</h4>
+                    <p>माझा संपर्क क्रमांक तुमच्या फोनमध्ये जतन करण्यासाठी खालील बटण दाबा.</p>
+                    <button class="btn btn-prime">V-Card डाऊनलोड करा</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="faq">
+    <div class="container">
+        <h2 class="section-title">नेहमी विचारले जाणारे <span class="text-saffron">प्रश्न</span></h2>
+        <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">आमदारांना भेटण्याची वेळ कोणती?</button></h2>
+                <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">चिंचवड येथील जनसंपर्क कार्यालयात दर शनिवारी सकाळी १० ते १ या वेळेत आपण भेटू शकता.</div></div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">शैक्षणिक मदतीसाठी अर्ज कसा करावा?</button></h2>
+                <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">आपण 'ई-तक्रार' विभागात जाऊन 'शैक्षणिक मदत' हा पर्याय निवडून अर्ज करू शकता.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-padding bg-light" id="map-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="section-title" style="text-align: left; margin-left: 0;">विकास <span class="text-saffron">नकाशा</span></h2>
+                <p class="lead">पिंपरी-चिंचवड आणि आसपासच्या भागात सुरू असलेले प्रमुख प्रकल्प.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-map-marker-alt text-saffron me-2"></i> <strong>मेट्रो विस्तार:</strong> पिंपरी ते निगडी मार्गिकेसाठी पाठपुरावा.</li>
+                    <li class="mb-3"><i class="fas fa-map-marker-alt text-saffron me-2"></i> <strong>पाणी पुरवठा:</strong> चिखली जलशुद्धीकरण केंद्र सक्षमीकरण.</li>
+                    <li class="mb-3"><i class="fas fa-map-marker-alt text-saffron me-2"></i> <strong>शिक्षण:</strong> नॉव्हेल इन्स्टिट्यूटच्या माध्यमातून डिजिटल क्लासरूम्स.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6" data-aos="zoom-in">
+                <div class="map-placeholder rounded-4 shadow-lg d-flex align-items-center justify-content-center" style="background: #e9ecef; height: 400px; border: 2px dashed var(--bjp-saffron);">
+                    <div class="text-center">
+                        <i class="fas fa-map-marked-alt display-1 text-muted mb-3"></i>
+                        <h5>इंटरअॅक्टिव्ह मॅप लवकरच येत आहे</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">लोकशाही <span class="text-saffron">कार्यप्रणाली</span></h2>
+            <p class="text-muted">तुमची समस्या सभागृहात कशी मांडली जाते?</p>
+        </div>
+        
+        
+        
+        <div class="row g-0 process-flow mt-5">
+            <div class="col-md-3 text-center process-step" data-aos="fade-up">
+                <div class="step-icon">१</div>
+                <h6>निवेदन स्वीकारणे</h6>
+                <p class="small text-muted">नागरिकांकडून समस्यांची माहिती घेणे.</p>
+            </div>
+            <div class="col-md-3 text-center process-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-icon">२</div>
+                <h6>अभ्यास व मसुदा</h6>
+                <p class="small text-muted">तज्ज्ञांच्या मदतीने तांत्रिक बाजू तपासणे.</p>
+            </div>
+            <div class="col-md-3 text-center process-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-icon">३</div>
+                <h6>सभागृहात मांडणी</h6>
+                <p class="small text-muted">तारांकित प्रश्नाद्वारे सरकारचे लक्ष वेधणे.</p>
+            </div>
+            <div class="col-md-3 text-center process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-icon">४</div>
+                <h6>अंमलबजावणी</h6>
+                <p class="small text-muted">शासकीय निर्णयाचा लाभ जनतेपर्यंत पोहोचवणे.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-navy text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <h2 class="display-5 fw-bold mb-4">डिजिटल <span class="text-warning">योद्धा</span> बना!</h2>
+                <p class="lead opacity-75">अमित गोरखे यांच्या विचारांचा प्रचार करण्यासाठी आणि सामाजिक कार्यात खारीचा वाटा उचलण्यासाठी आमच्याशी जोडा.</p>
+                <div class="mt-4">
+                    <span class="badge rounded-pill bg-light text-navy p-2 px-3 me-2 mb-2">#PimpriChinchwad</span>
+                    <span class="badge rounded-pill bg-light text-navy p-2 px-3 me-2 mb-2">#YouthPower</span>
+                    <span class="badge rounded-pill bg-light text-navy p-2 px-3 me-2 mb-2">#NavaMaharashtra</span>
+                </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="bg-white p-4 rounded-4 text-dark shadow">
+                    <h5 class="fw-bold mb-3 text-center">नोंदणी करा</h5>
                     <form>
-                        <input type="text" class="form-control mb-3" placeholder="तुमचे नाव">
-                        <input type="text" class="form-control mb-3" placeholder="मोबाइल नंबर">
-                        <textarea class="form-control mb-3" rows="4" placeholder="तुमचा संदेश"></textarea>
-                        <button class="btn btn-saffron w-100">संदेश पाठवा</button>
+                        <input type="text" class="form-control mb-3" placeholder="पूर्ण नाव">
+                        <input type="tel" class="form-control mb-3" placeholder="WhatsApp नंबर">
+                        <button class="btn btn-prime w-100 py-3">सहभागी व्हा</button>
                     </form>
                 </div>
             </div>
@@ -300,40 +947,125 @@
     </div>
 </section>
 
-<footer class="py-4 text-center border-top border-secondary">
-    <p class="mb-0 text-white-50">© २०२६ अमित गणपत गोरखे कार्यालय | नवे विचार, नवा महाराष्ट्र</p>
+<section class="section-padding bg-light" id="skill-hub">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">युवा <span class="text-saffron">कौशल्य केंद्र</span></h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="skill-card">
+                    <div class="skill-img" style="background-image: url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=400');"></div>
+                    <div class="p-4">
+                        <h5>ITI सक्षमीकरण</h5>
+                        <p class="small">औद्योगिक गरजांनुसार अभ्यासक्रम बदलण्यासाठी पुढाकार.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="skill-card">
+                    <div class="skill-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400');"></div>
+                    <div class="p-4">
+                        <h5>स्टार्टअप मार्गदर्शन</h5>
+                        <p class="small">नवीन उद्योजकांना शासकीय अनुदानासाठी मदत.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="skill-card">
+                    <div class="skill-img" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400');"></div>
+                    <div class="p-4">
+                        <h5>मोफत सेमिनार</h5>
+                        <p class="small">करिअर गायडन्स आणि सॉफ्ट स्किल्स प्रशिक्षण.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4" data-aos="fade-up">
+                <div class="contact-info-box h-100">
+                    <i class="fas fa-clock mb-3 display-6 text-saffron"></i>
+                    <h4>भेटण्याची वेळ</h4>
+                    <p>प्रत्येक शनिवारी सकाळी १०:०० ते १:०० <br> (जनसंपर्क कार्यालय, चिंचवड)</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info-box h-100 bg-saffron text-white">
+                    <i class="fas fa-headset mb-3 display-6"></i>
+                    <h4>हेल्पलाईन नंबर</h4>
+                    <p>१८००-XXX-XXX <br> (सकाळी ९ ते संध्याकाळी ७)</p>
+                </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-info-box h-100">
+                    <i class="fas fa-envelope-open-text mb-3 display-6 text-saffron"></i>
+                    <h4>ई-मेल संपर्क</h4>
+                    <p>office@amitgorkhe.com <br> तक्रार निवारणासाठी क्लिक करा</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light" id="social">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">माझ्याशी <span class="text-saffron">कनेक्ट व्हा</span></h2>
+            <p class="text-muted">ताज्या घडामोडी फॉलो करा</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 col-6" data-aos="flip-left"><a href="#" class="social-box fb"><i class="fab fa-facebook-f display-6 mb-2"></i><h6>Facebook</h6></a></div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="100"><a href="#" class="social-box inst"><i class="fab fa-instagram display-6 mb-2"></i><h6>Instagram</h6></a></div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="200"><a href="#" class="social-box tw"><i class="fab fa-x-twitter display-6 mb-2"></i><h6>Twitter (X)</h6></a></div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="300"><a href="#" class="social-box yt"><i class="fab fa-youtube display-6 mb-2"></i><h6>YouTube</h6></a></div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-navy pt-5 text-white">
+    <div class="container pb-4">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <h3 class="fw-bold mb-3">आमदार अमित <span class="text-warning">गोरखे</span></h3>
+                <p class="opacity-75">जनसेवा हीच ईश्वर सेवा. पिंपरी-चिंचवडच्या विकासासाठी आणि सामान्यांच्या हक्कासाठी आम्ही सदैव तत्पर आहोत.</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold mb-4">उपयुक्त दुवे</h5>
+                <ul class="list-unstyled opacity-75">
+                    <li><a href="#about" class="text-white text-decoration-none">परिचय</a></li>
+                    <li><a href="#adhiveshan" class="text-white text-decoration-none">अधिवेशन कार्य</a></li>
+                    <li><a href="#jeevan-path" class="text-white text-decoration-none">जीवनपट</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold mb-4">संपर्क</h5>
+                <p class="opacity-75"><i class="fas fa-map-marker-alt me-2"></i> चिंचवड, पुणे - ४११०१९</p>
+            </div>
+        </div>
+        <hr class="mt-5 opacity-25">
+        <div class="text-center opacity-50 small">© २०२६ अमित गोरखे. सर्व हक्क सुरक्षित.</div>
+    </div>
 </footer>
 
-<a href="https://wa.me/919822254678" target="_blank" style="position:fixed; bottom:20px; right:20px; z-index:1000;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="60" alt="WhatsApp">
-</a>
+<a href="https://wa.me/919822254678" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    // Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".hero-title", { duration: 1.5, y: -100, opacity: 0, ease: "bounce" });
+    AOS.init({ duration: 1000, once: true });
     
-    gsap.utils.toArray('.glass-card').forEach(card => {
-        gsap.from(card, {
-            scrollTrigger: card,
-            y: 50, opacity: 0, duration: 1
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
-
-    // Simple Counter
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        counter.innerText = '0';
-        const updateCounter = () => {
-            const target = +counter.getAttribute('data-target') || parseInt(counter.innerText.replace(/\D/g,'')) + 50; 
-            // Simplified for demo
-            if (parseInt(counter.innerText) < 100) {
-                counter.innerText = parseInt(counter.innerText) + 1;
-                setTimeout(updateCounter, 20);
-            }
-        };
-        // updateCounter(); 
     });
 </script>
 
